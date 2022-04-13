@@ -6,12 +6,12 @@ mudule Api
         # This renders all the airline companies using the serializer
         # Calls all airlines and passed it into the AirlineSerializer
         airlines = Airline.all
-        render json: AirlineSerializer.new(airlines).serialized_json
+        render json: AirlineSerializer.new(airlines, options).serialized_json
       end
 
       def show
         airline = Airline.find_by(slug: params[:slug])
-        render json: AirlineSerializer.new(airline).serialized_json
+        render json: AirlineSerializer.new(airline, options).serialized_json
       end
 
       def create
@@ -28,7 +28,7 @@ mudule Api
         airline = Airline.find_by(slug: params[:slug])
 
         if airline.update(airline_params)
-          render json: AirlineSerializer.new(airline).serialized_json
+          render json: AirlineSerializer.new(airline, options).serialized_json
         else
           render json: { error: airline.errors.messages }, status: 422
         end
