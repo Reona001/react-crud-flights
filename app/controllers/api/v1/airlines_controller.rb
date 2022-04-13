@@ -34,6 +34,16 @@ mudule Api
         end
       end
 
+      def destroy
+        airline = Airline.find_by(slug: params[:slug])
+
+        if airline.destroy
+          head :no_content
+        else
+          render json: { error: airline.errors.messages }, status: 422
+        end
+      end
+
       private
 
       def airline_params
