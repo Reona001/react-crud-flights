@@ -1,4 +1,4 @@
-mudule Api
+module Api
   module v1
     class AirlinesController < ApplicationController
 
