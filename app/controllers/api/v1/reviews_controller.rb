@@ -1,6 +1,8 @@
-mudule Api
+module Api
   module V1
     class ReviewsController < ApplicationController
+      # To work around the nvalidAuthenticityToken add the following:
+      protect_from_forgery with: :null_session
 
       def create
         review = Review.new(review_params)
