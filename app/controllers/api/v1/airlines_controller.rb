@@ -1,6 +1,8 @@
 module Api
   module V1
     class AirlinesController < ApplicationController
+      # To work around the nvalidAuthenticityToken add the following:
+      protect_from_forgery with: :null_session
 
       def index
         # This renders all the airline companies using the serializer
