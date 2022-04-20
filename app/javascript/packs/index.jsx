@@ -5,17 +5,41 @@
 //React 18 syntax guide: https://stackoverflow.com/questions/71668256/deprecation-notice-reactdom-render-is-no-longer-supported-in-react-18
 
 import React from 'react'
-import ReactDOM from 'react-dom/client'
-// import * as ReactDOM from 'react-dom/client'
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import App from '../components/App'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+
+import { createRoot } from 'react-dom/client';
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  ReactDOM.render(
+    <App />,
+    document.body.appendChild(document.createElement('div')),
+  )
+})
+
+// const rootElement = document.getElementById("root")
+// const root = createRoot(rootElement)
+// root.render(<App />);
+// import { BrowserRouter as Router, Route } from 'react-router-dom'
+
+// import { createRoot } from 'react-dom/client';
+// const container = document.getElementById('app');
+// const root = createRoot(container);
+// root.render(<App tab="home" />, container);
 
 //ReactDOM.render(<div>) is no longer supported in react 18
 // used createRoot
 
-const container = document.getElementById('root');
-const root = ReactDOM.createRoot(container);
+// const container = document.getElementById('root');
+// const root = ReactDOM.createRoot(container);
+
+// const root = ReactDOM.createRoot(
+//   document.getElementById("root"),
+// ).render(<App />, document.getElementById('app'))
+
 
 document.addEventListener('DOMContentLoaded', () => {
   root.render(
@@ -27,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(document.createElement('div')),
     )
   })
+
 
 // const rootElement = document.getElementById("root");
 // const root = createRoot(rootElement);
